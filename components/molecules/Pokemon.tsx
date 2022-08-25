@@ -9,8 +9,9 @@ const Pokemon = ({pokemon, index}) => {
 				width={150} 
 				height={150} 
 				alt={pokemon.name} 
-				src={'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/'+pokemonIndex+'.png'} />
-			<div className="font-bold text-amber-400 uppercase mt-4">
+				// eslint-disable-next-line quotes
+				src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${pokemonIndex}.png`} />
+			<div className="font-bold text-sm text-amber-400 uppercase mt-4">
 				{pokemon.name}
 			</div>
 		</div>
