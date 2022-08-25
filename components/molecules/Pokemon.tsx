@@ -4,13 +4,15 @@ const Pokemon = ({pokemon, index}) => {
 	const pokemonIndex = ('000' + (index + 1)).slice(-3)
 
 	return (
-		<div key={index} className='m-4 w-72'>
+		<div key={index} className='m-4 py-4 flex justify-center items-center flex-col bg-slate-600 rounded-2xl'>
 			<Image 
 				width={150} 
 				height={150} 
 				alt={pokemon.name} 
 				src={'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/'+pokemonIndex+'.png'} />
-			{pokemon.name}
+			<div className="font-bold text-amber-400 uppercase mt-4">
+				{pokemon.name}
+			</div>
 		</div>
 	)
 }

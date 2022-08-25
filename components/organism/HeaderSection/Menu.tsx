@@ -12,7 +12,7 @@ export default function Menu(props:menuProps) {
 	return (
 		<li className="group">
 			<Link href={href}>
-				<a className="text-base text-dark py-2 mx-8 flex group-hover:text-primary">{title}</a>
+				<a className="text-base text-amber-300 py-2 mx-8 flex group-hover:text-primary">{title}</a>
 			</Link>
 		</li>
 	)
