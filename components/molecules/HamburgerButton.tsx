@@ -5,5 +5,5 @@ export default function HamburgerButton() {
 			<span className="hamburger-line transition duration-300 ease-in-out"></span>
 			<span className="hamburger-line transition duration-300 ease-in-out origin-bottom-left"></span>
 		</button>
-	);
+	)
 }

@@ -1,40 +1,28 @@
+import axios from 'axios'
 import { GetStaticProps } from 'next'
 import { useState } from 'react'
+import Pokemon from '../components/molecules/Pokemon'
 import HeaderSection from '../components/organism/HeaderSection'
 
-type InitialPokemonProps = {
-	initialPokemon : {
-		count : number
-		next : string
-		previous : null
-		results : [{
-			name : string
-			url : string
-		}]
-	}
-}
-
-export default function Home(props : InitialPokemonProps) {
-	const { initialPokemon } = props
+const Home = ({initialPokemon}) => {
 	const [pokemon, setPokemon] = useState(initialPokemon)
 
 	return (
 		<>
 			<HeaderSection />
-			<div>
-				{pokemon.results.map((character, index) =>(
-					<div key={index}>
-						{character.name}
-					</div>
+			<div className='flex flex-wrap items-center justify-center container'>
+				{pokemon.results.map((character, index) => (
+					<Pokemon key={index} pokemon={character} index={index}/>
 				))}
 			</div>
 		</>
 	)
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
-	const response = await fetch('https://pokeapi.co/api/v2/pokemon')
-	const initialPokemon = await response.json()
+export const getStaticProps: GetStaticProps = async () => {
+
+	const response = await axios.get('https://pokeapi.co/api/v2/pokemon')
+	const initialPokemon = response.data
 
 	return {
 		props: {
@@ -42,3 +30,5 @@ export const getStaticProps: GetStaticProps = async (context) => {
 		}
 	}
 }
+
+export default Home
